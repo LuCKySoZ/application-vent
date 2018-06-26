@@ -1,0 +1,171 @@
+body {
+  color: #212121;
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 12px;
+}
+
+a {
+  color: #69d3be;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #65baa9;
+}
+
+/* --------- TABLE --------- */
+
+.app-table {
+  background-color: #fff;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 100%;
+  width: 100%;
+  font-size: 14px;
+}
+
+.app-header-table-user {
+  padding: 20px 16px;
+  font-weight: 700;
+  border-bottom: #212121 solid 1px;
+}
+
+.app-row-table-user:nth-of-type(odd) {
+  background-color: #f8f8f8;
+}
+
+.app-row-table-user:hover {
+  background-color: #f1f1f1;
+}
+
+.app-column-table-user {
+  padding: 16px;
+}
+
+/* --------- ICONS --------- */
+
+.app-registration-icons {
+  color: #65baa9;
+  font-size: 70px;
+}
+
+/* --------- BUTTONS --------- */
+
+.app-btn-options {
+  cursor: pointer;
+  color: #65baa9;
+  visibility: hidden;
+  font-size: 18px;
+}
+
+#app-row-table-user:hover .app-btn-options {
+  visibility: visible;
+}
+
+/* --------- TEXT --------- */
+
+.app-text-center {
+  text-align: center !important;
+}
+.app-text-left {
+  text-align: left !important;
+}
+
+.app-title {
+  font-weight: lighter;
+  font-size: 32px;
+}
+
+.app-register-title {
+  font-weight: lighter;
+  font-size: 22px;
+  color: #69d3be;
+  padding: 20px 0;
+}
+
+.app-register-content {
+  font-size: 14px;
+  margin: auto;
+}
+
+/* --------- SPACE --------- */
+
+.app-pa--50 {
+  padding: 50px !important;
+}
+.app-pa--75 {
+  padding: 75px !important;
+}
+
+.app-ph--25 {
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+.app-ph--50 {
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+}
+.app-ph--200 {
+  padding-left: 200px !important;
+  padding-right: 200px !important;
+}
+
+.app-mh--25 {
+  margin-left: 25px !important;
+  margin-right: 25px !important;
+}
+.app-mh--50 {
+  margin-left: 50px !important;
+  margin-right: 50px !important;
+}
+.app-mh--150 {
+  margin-left: 150px !important;
+  margin-right: 150px !important;
+}
+
+.app-mr--20 {
+  margin-right: 20px !important;
+}
+.app-mr--25 {
+  margin-right: 25px !important;
+}
+.app-mr--50 {
+  margin-right: 50px !important;
+}
+
+.app-ml--20 {
+  margin-left: 20px !important;
+}
+.app-ml--25 {
+  margin-left: 25px !important;
+}
+.app-ml--50 {
+  margin-left: 50px !important;
+}
+
+.app-mt--50 {
+  margin-top: 50px !important;
+}
+
+/* --------- OTHERS --------- */
+
+.app-divider {
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 4px;
+  margin: auto;
+}
+
+/* --------- FORM --------- */
+
+.app-form {
+  padding-top: 25px;
+  width: 100%;
+}
+.app-form-label > input {
+  width: 100%;
+  padding: 2px;
+  border-radius: 2px;
+}
