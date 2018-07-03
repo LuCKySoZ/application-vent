@@ -73,7 +73,7 @@ render(
         </div>
         <div className="app-row">
           <div className="app-column app-registration-icons _80--fixed">
-            <i className="fa fa-smile-o" />
+            <i className="far fa-smile" />
           </div>
           <div className="app-column app-register-content">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

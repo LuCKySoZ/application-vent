@@ -65,7 +65,7 @@ export default class UserList extends React.Component {
             className="app-btn-options"
             id="app-btn-options"
           >
-            <i className="fa fa-trash-o" />
+            <i className="fa fa-trash-alt " />
           </div>
         </td>
       </tr>
