@@ -3,6 +3,7 @@ import { render } from "react-dom";
 
 import UserList from "./components/UserList";
 import Form from "./components/Form";
+// import Filter from "./components/Filter";
 import UserStore from "./stores/UserStore";
 
 const store = new UserStore();
@@ -25,14 +26,20 @@ render(
     <div className="app-row">
       <span className="app-title">Users</span>
       <div className="app-column app-divider app-mh--50" />
+      {/* <div style={{ display: "inline-flex" }}>
+        <Filter />
+      </div> */}
     </div>
-    <div className="app-rwo">
+
+    <div className="app-row">
       <UserList headers={headers} store={store} />
     </div>
+
     <div className="app-row">
       <span className="app-title">Registration</span>
       <div className="app-column app-divider app-ml--50" />
     </div>
+
     <div className="app-row">
       <div className="app-column">
         <div className="app-row app-register-title">Need help?</div>
@@ -80,9 +87,11 @@ render(
       <div className="app-column app-divider" />
     </div>
 
-    <div className="app-row">
+    <div className="app-row app-mh--150">
       <Form store={store} />
     </div>
   </div>,
   document.getElementById("root")
 );
+
+window.store = store;

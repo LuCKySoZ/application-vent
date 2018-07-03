@@ -3,7 +3,7 @@ body {
   font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  font-size: 12px;
+  font-size: 14px;
 }
 
 a {
@@ -13,6 +13,49 @@ a {
 
 a:hover {
   color: #65baa9;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  font-weight: 700;
+  background-color: #69d3be;
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="cancel"] {
+  font-weight: 700;
+  background-color: #e2e2e2;
+  color: #333333;
+  padding: 14px 20px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 90px;
+}
+
+input[type="submit"]:hover {
+  background-color: #65baa9;
+}
+
+input[type="cancel"]:hover {
+  background-color: #c2c2c2;
 }
 
 /* --------- TABLE --------- */
@@ -158,14 +201,13 @@ a:hover {
   margin: auto;
 }
 
+.app-pointer {
+  cursor: pointer !important;
+}
+
 /* --------- FORM --------- */
 
 .app-form {
   padding-top: 25px;
   width: 100%;
-}
-.app-form-label > input {
-  width: 100%;
-  padding: 2px;
-  border-radius: 2px;
 }

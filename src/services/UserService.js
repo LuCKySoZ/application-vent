@@ -24,7 +24,7 @@ class UserService extends React.Component {
       { userId: 2, days: "Sometimes" },
       { userId: 3, days: "Never" },
       { userId: 4, days: "Sometimes" },
-      { userId: 5, days: "Sometime" },
+      { userId: 5, days: "Sometimes" },
       { userId: 6, days: "always" },
       { userId: 7, days: "always" },
       { userId: 8, days: "always" },

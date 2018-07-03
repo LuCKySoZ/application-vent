@@ -31,14 +31,18 @@ export default class UserList extends React.Component {
           <a href={`mailto:${user.email}`}>{user.email}</a>
         </td>
         <td className="app-column-table-user">
-          <a
-            href={`https://maps.google.com/?ll=${user.address.geo.lat},${
-              user.address.geo.lng
-            }`}
-            target="_blank"
-          >
-            {user.address.city}
-          </a>
+          {!user.address.geo ? (
+            user.address.city
+          ) : (
+            <a
+              href={`https://maps.google.com/?ll=${user.address.geo.lat},${
+                user.address.geo.lng
+              }`}
+              target="_blank"
+            >
+              {user.address.city}
+            </a>
+          )}
         </td>
         <td className="app-column-table-user">
           {this.store.getRideInGroupByUser(user.id)}
@@ -70,7 +74,6 @@ export default class UserList extends React.Component {
 
   renderHeader() {
     return _map(this.props.headers, header => {
-      console.log("he", header);
       let text = "";
       let alignClassName = "";
 
@@ -91,8 +94,6 @@ export default class UserList extends React.Component {
       );
     });
   }
-
-  // ;
 
   render() {
     if (_isEmpty(this.store.userList)) {
