@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import UserList from "./components/UserList";
 import Form from "./components/Form";
-// import Filter from "./components/Filter";
+import Filter from "./components/Filter";
 import UserStore from "./stores/UserStore";
 
 const store = new UserStore();
@@ -26,9 +26,16 @@ render(
     <div className="app-row">
       <span className="app-title">Users</span>
       <div className="app-column app-divider app-mh--50" />
-      {/* <div style={{ display: "inline-flex" }}>
-        <Filter />
-      </div> */}
+      <div style={{ display: "inline-flex" }}>
+        <Filter
+          name="search"
+          onClearAll={valorDaPesquisa =>
+            this._limparCamposFiltro(valorDaPesquisa)
+          }
+          onFilter={valorDaPesquisa => this._executarFiltro(valorDaPesquisa)}
+          placeholder="digite 3 caracteres para pesquisa"
+        />
+      </div>
     </div>
 
     <div className="app-row">
