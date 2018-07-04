@@ -17,7 +17,7 @@ Browser should open automatically. Otherwise, navigate to the URL reported in th
 
 `mobx-react-boilerplate`
 
-### Consideration
+### Considerations
 
 * There is a bug in seachr, for now you can just search in usaername, name, email and city, to imporve this search will need a better way to catch the other informations.
 
