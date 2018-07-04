@@ -26,6 +26,18 @@ select {
   box-sizing: border-box;
 }
 
+input[type="search"],
+select {
+  width: 100%;
+  padding: 6px 8px;
+  padding-left: 26px;
+  margin-bottom: 8px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type="submit"] {
   font-weight: 700;
   background-color: #69d3be;
@@ -48,6 +60,13 @@ input[type="cancel"] {
   border-radius: 4px;
   cursor: pointer;
   width: 90px;
+}
+
+input[type="search"]:focus,
+input[type="text"]:focus {
+  outline: none !important;
+  border: 1px solid #65baa9 !important;
+  box-shadow: 0 0 4px #65baa9;
 }
 
 input[type="submit"]:hover {
@@ -188,6 +207,9 @@ input[type="cancel"]:hover {
   margin-left: 50px !important;
 }
 
+.app-mt--25 {
+  margin-top: 25px !important;
+}
 .app-mt--50 {
   margin-top: 50px !important;
 }

@@ -45,7 +45,7 @@ class CheckBox extends Component {
         minWidth: 20,
         margin: "auto",
         fontSize: 14,
-        marginLeft: 4,
+        marginLeft: 3,
         color: "#424242"
       };
     }

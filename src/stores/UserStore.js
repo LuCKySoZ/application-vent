@@ -14,6 +14,7 @@ import _find from "lodash/find";
 import _filter from "lodash/filter";
 import _findLast from "lodash/findLast";
 import _findIndex from "lodash/findIndex";
+import _isEmpty from "lodash/isEmpty";
 
 useStrict(true);
 
@@ -36,6 +37,7 @@ const daysOptions = [
 class UserState {
   @observable loading = false;
   @observable users = {};
+  @observable filteredUsers = {};
   @observable posts = {};
   @observable albums = {};
   @observable photos = {};
@@ -50,7 +52,7 @@ class UserState {
 
   @computed
   get userList() {
-    return toJS(this.users);
+    return toJS(this.filteredUsers);
   }
 
   @computed
@@ -89,6 +91,7 @@ class UserState {
       .then(response => {
         runInAction("Load users - success", () => {
           this.users = response[0].data;
+          this.filteredUsers = response[0].data;
           this.posts = response[1].data;
           this.albums = response[2].data;
           this.photos = response[3].data;
@@ -187,6 +190,9 @@ class UserState {
     this.users = _filter(this.users, function(user) {
       return user.id != id;
     });
+
+    // this.loadRegisters();
+    this.filteredUsers.replace(this.users);
   }
 
   @action
@@ -281,7 +287,70 @@ class UserState {
       }).userId + 1;
     this.daysOfTheWeek.push(days);
 
+    // this.loadRegisters();
+    this.filteredUsers.replace(this.users);
     this.discardUser();
+  }
+
+  normalizeValue(value) {
+    var string = value;
+    var mapHex = {
+      a: /[\xE0-\xE6]/g,
+      e: /[\xE8-\xEB]/g,
+      i: /[\xEC-\xEF]/g,
+      o: /[\xF2-\xF6]/g,
+      u: /[\xF9-\xFC]/g,
+      c: /\xE7/g,
+      n: /\xF1/g
+    };
+
+    for (var word in mapHex) {
+      var expressaoRegular = mapHex[word];
+      string = string.replace(expressaoRegular, word);
+    }
+
+    return string;
+  }
+
+  @action
+  search(value) {
+    value = this.normalizeValue(value);
+    let filteredList = this.users;
+    const listOfValues = value.toLowerCase().split(" ");
+
+    listOfValues.forEach(word => {
+      filteredList = toJS(this.searchForWord(filteredList, word));
+    });
+
+    this.filteredUsers.replace(filteredList);
+  }
+
+  @action
+  searchForWord(listaFiltrada, value) {
+    if (!_isEmpty(value)) {
+      listaFiltrada = listaFiltrada.filter(user => {
+        let foundUserName =
+          this.normalizeValue(user.username.toLowerCase().trim()).indexOf(
+            value.trim()
+          ) != -1;
+        let foundName =
+          this.normalizeValue(user.name.toLowerCase().trim()).indexOf(
+            value.trim()
+          ) != -1;
+        let foundEmail =
+          this.normalizeValue(user.email.toLowerCase().trim()).indexOf(
+            value.trim()
+          ) != -1;
+        let foundCity =
+          this.normalizeValue(user.address.city.toLowerCase().trim()).indexOf(
+            value.trim()
+          ) != -1;
+
+        return foundUserName || foundName || foundEmail || foundCity;
+      });
+    }
+
+    return listaFiltrada;
   }
 }
 

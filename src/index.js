@@ -29,11 +29,8 @@ render(
       <div style={{ display: "inline-flex" }}>
         <Filter
           name="search"
-          onClearAll={valorDaPesquisa =>
-            this._limparCamposFiltro(valorDaPesquisa)
-          }
-          onFilter={valorDaPesquisa => this._executarFiltro(valorDaPesquisa)}
-          placeholder="digite 3 caracteres para pesquisa"
+          onFilter={valorDaPesquisa => store.search(valorDaPesquisa)}
+          placeholder="Filter table content"
         />
       </div>
     </div>
@@ -42,7 +39,7 @@ render(
       <UserList headers={headers} store={store} />
     </div>
 
-    <div className="app-row">
+    <div className="app-row app-mt--25">
       <span className="app-title">Registration</span>
       <div className="app-column app-divider app-ml--50" />
     </div>

@@ -9,7 +9,6 @@ class Filter extends React.Component {
       clearFieldIsVisible: false
     };
     this.doFilterBySearchField = this.doFilterBySearchField.bind(this);
-    this.submitForm = this.submitForm.bind(this);
     this.searchFiled;
   }
 
@@ -28,35 +27,27 @@ class Filter extends React.Component {
   clearSearchField() {
     if (this.props.onFilter) {
       this.searchFiled.value = "";
-      this.setState(
-        { clearFieldIsVisible: false },
-        this.props.onFilter(this.searchFiled.value)
-      );
-    }
-  }
-
-  submitForm(e) {
-    e.preventDefault();
-    if (this.props.onFormSubmit) {
-      this.props.onFormSubmit(this.searchFiled.value);
+      this.setState({ clearFieldIsVisible: false });
+      this.doFilterBySearchField();
     }
   }
 
   render() {
     const timesIconStyle = {
-      paddingTop: "10px",
-      marginLeft: "-25px",
+      paddingTop: "8px",
+      marginLeft: "-22px",
       cursor: "pointer"
     };
 
-    const {
-      applyFilterButtonLabel,
-      cancelButtonLabel,
-      clearFilterOptionsButtonLabel,
-      filterButtonLabel,
-      placeholder,
-      children
-    } = this.props;
+    const searchIconStyle = {
+      paddingTop: 8,
+      paddingLeft: 6,
+      height: 19,
+      position: "absolute",
+      color: "#ccc"
+    };
+
+    const { placeholder, children } = this.props;
 
     let clearFieldIcon = "";
 
@@ -73,11 +64,9 @@ class Filter extends React.Component {
     }
 
     return (
-      <form className="" onSubmit={e => this.submitForm(e)}>
-        <div className="">
-          <span className="">
-            <i className="fa fa-search fa-fw" />
-          </span>
+      <form style={{ margin: "auto" }} onSubmit={e => this.submitForm(e)}>
+        <div style={{ display: "inline-flex" }}>
+          <i style={searchIconStyle} className="fa fa-search fa-fw" />
           <input
             className="on-center"
             onKeyUp={() => {
@@ -96,19 +85,11 @@ class Filter extends React.Component {
 }
 
 Filter.defaultProps = {
-  applyFilterButtonLabel: "Aplicar Filtro",
-  cancelButtonLabel: "Cancelar",
-  clearFilterOptionsButtonLabel: "Limpar Filtro",
-  filterButtonLabel: "Opções",
-  placeholder: "Buscar"
+  placeholder: "Search"
 };
 
 Filter.propTypes = {
   applyFilterButtonLabel: PropTypes.string,
-  cancelButtonLabel: PropTypes.string,
-  clearFilterOptionsButtonLabel: PropTypes.string,
-  filterButtonLabel: PropTypes.string,
-  onClearAll: PropTypes.func,
   onFilter: PropTypes.func,
   onFormSubmit: PropTypes.func,
   placeholder: PropTypes.string
